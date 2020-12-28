@@ -9,6 +9,8 @@ except ImportError:
 
 # VARIABLES
 padding             = [1, 0, 0, 3]
+width               = os.get_terminal_size().columns
+justify             = 'center'
 font_name           = '3x5'
 custom_char_replace = {'#': '\u2588'}
 time_format         = '%H:%M:%S'
@@ -22,7 +24,7 @@ while True:
     time_string = datetime.datetime.now().strftime(time_format)
 
     # Turn the string into a figlet ASCII art string
-    figlet_string = figlet_format(time_string, font=font_name)
+    figlet_string = figlet_format(time_string, font=font_name, width=width, justify=justify)
 
     # Replace any characters
     for char in custom_char_replace:
